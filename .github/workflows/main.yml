@@ -10,7 +10,7 @@ jobs:
     name: Build and analyze
     runs-on: macos-latest
     env:
-      BUILD_WRAPPER_OUT_DIR: /Users/Amine/SES/SES/BLD # Directory where build-wrapper output will be placed
+      BUILD_WRAPPER_OUT_DIR: /Users/Amine/SES/SES # Directory where build-wrapper output will be placed
     steps:
       - uses: actions/checkout@v3
         with:
@@ -19,7 +19,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-c-cpp@v2
       - name: Run build-wrapper
         run: |
-          build-wrapper-macosx-x86 --out-dir /Users/Amine/SES/SES make
+          build-wrapper-macosx-x86 --out-dir /Users/Amine/SES/SES/BLD make
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
